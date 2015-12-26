@@ -104,3 +104,32 @@ if has("autocmd")
 	" Treat .md files as Markdown
 	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+" powerline
+set rtp+=usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/unite.vim'
+Plugin 'rking/ag.vim'
+Plugin 'SirVer/ultisnips'
+
+let NERDTreeMinimalUI=1
+let NERDTreeWinSize=25
+
+"Press F1 to open NERDTree
+map <F1> :NERDTreeToggle<CR>
+
+call vundle#end()            " required
